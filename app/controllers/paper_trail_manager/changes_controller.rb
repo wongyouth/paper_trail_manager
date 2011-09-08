@@ -14,7 +14,7 @@ class PaperTrailManager::ChangesController < ApplicationController
       @versions = @versions.where(:item_id => params[:id])
     end
 
-    @versions = @versions.paginate(:page => params[:page], :per_page => 50)
+    @versions = @versions.page(params[:page]).per(50)
 
     respond_to do |format|
       format.html # index.html.erb
